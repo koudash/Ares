@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- |head starts| -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ares</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Bootstrap jQuery and Popper.js -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <!-- "Sketchy" theme from Bootswatch -->
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
+        <!-- Local style CSS -->
+        <link rel="stylesheet" type="text/css" href="../static/style_index.css">
+        <!-- Avoid fake favicon requests -->
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <!-- |head ends| -->
+    </head>
+    <!-- |body starts| -->
+    <body>
+        <!-- ||pg-lyt-container starts|| -->
+        <div id='pg-lyt-container'>
+            <div id='pg-lyt-body'>
+                <div class="container text-white">
+                    <!-- Refer to MarsApp.py '/scrape' route to scrape latest Mars data -->
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 jumbotron text-center vertical-center">                      
+                            <h1 class="display-4 text-warning">Mission to Mars</h1>
+                            <p class="lead">
+                                <a class="btn btn-primary btn-lg bg-warning text-info" href="/scrape" role="button">Scrape New Data</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Rows to display latest Mars news -->
+                    <div class="row justify-content-center my-3">
+                        <div class="col-sm-12">
+                            <h3 class='text-warning'>Latest Mars News</h3>
+                            <h5 class='text-danger'>{{ mars_data['Mars_News']['NASA_News_Title'] }}</h5>
+                            <p>Updated on: {{ mars_data['Mars_News']['NASA_News_date'] }}</p>
+                            <h6>{{ mars_data['Mars_News']['NASA_News_Para'] }}</h6>
+                        </div>
+                    </div>
+                    <!-- Rows for Mars featured image, weather, and facts -->
+                    <div class="row justify-content-left my-5">
+                        <!-- Mars featured image on the left -->
+                        <div class="col-md-8">
+                            <h3 class='text-warning'>Featured Mars Image</h3>
+                            <p><img class='mr-3 float-left featured-img' src="{{ mars_data['Featured_Image_url'] }}" alt="featured image"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row justify-content-left">
+                                <!-- Mars weather on upper right -->
+                                <div class="col-sm-12">
+                                    <div class="card float-right" style="width: 22rem;">
+                                        <div class="card-body bg-dark">
+                                            <h3 class="card-title text-warning">Current Weather on Mars</h3>
+                                            <p class="card-text">{{ mars_data['Weather_Brief'] }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mars facts on lower right -->
+                            <div class="row justify-content-left mt-3">    
+                                <div class="col-sm-12 ml-3">    
+                                    <h3 class='text-warning'>Mars Facts</h3>
+                                    <div class='mars-table'>{{ mars_data['Fact_Table'] | safe }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row justify-content-center mt-5">
+                        <!-- Mars hemispheres -->
+                        <div class="col-sm-12">                        
+                            <h3 class='text-warning text-center'>Mars Hemispheres</h3>
+                            <hr/>
+                        </div>
+                        {% for hemisph in mars_data.Hemispheres %}
+                        <div class="col-sm-6 mb-5">
+                            <p><img class='hemisph-img mx-5' src="{{ hemisph.img_url }}" alt="{{ hemisph.title }}"></p>
+                            <div class='img-text m-5'><h5>{{ hemisph.title }}</h5></div>
+                        </div>
+                        {% endfor %}
+                    </div>                                        
+                    
+                    
+                
+                </div>
+            <!-- |||pg-lyt-body ends||| -->                 
+            </div>
+            <!-- |||pg-lyt-footer||| -->
+            <div id='pg-lyt-footer'><hr id='hr-footer'>Rice Coding Bootcamp 2019 - Mission to Mars HW by Lei Kang</div>
+        <!-- ||pg-lyt-container ends|| -->        
+        </div>
+    <!-- |body ends| -->
+    </body>        
+</html>

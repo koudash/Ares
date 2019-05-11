@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 def index():
 
     # Retrieve the latest Mars data from "Mars_app" Mongo database
-    mars_data = mongo.db.html_update_history.find_one()
+    mars_data = mongo.db.html_update_history.find_one(sort=[('Data_Retrv_D&T', -1)])
 
     #  Pass Mars data to 'index.html' for display
     return render_template('index.html', mars_data=mars_data)

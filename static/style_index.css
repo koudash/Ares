@@ -47,16 +47,9 @@ html, body {
     border-color: black;
 }
 
-.mars-table {
-    font-size: 10 px;
-    background-color: black;
-    color: black;
-}
-
-.dataframe {
+.mars-tr {
     background-color: black;
 }
-
 
 hr {
     display: block;

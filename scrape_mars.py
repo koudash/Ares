@@ -172,10 +172,25 @@ def scrape():
     mars_fact_df['Values'] = [cols[i][1] for i in range(len(cols))]
 
     # Save Mars fact data as html table
-    fact_table = mars_fact_df.to_html(header=False, index=False)
+    fact_html = mars_fact_df.to_html(header=True, index=False, classes='mars-table')
+
+    # Manually add tr class ("mar-tr")
+    # 1. Remove "style" info. for tr in thead
+    im1 = fact_html.split(' style="text-align: right;"')
+    im1_html = im1[0] + " class='mar-tr mar-tr-head'" + im1[1]
+
+    # 2. Add class info at "<tr>"
+    im2 = im1_html.split('<tr>\n')
+    for i in range(1, len(im2)):
+        im2[i] = "<tr class='mar-tr'" + im2[i]
+
+    # 3. Concatenate the new html
+    fact_html2 = ''
+    for i in range(len(im2)):
+        fact_html2 += im2[i]
 
     # Save Mars fact table data to "mars_fact"
-    mars_fact['Fact_Table'] = fact_table
+    mars_fact['Fact_Table'] = fact_html2
 
     # 
     # 

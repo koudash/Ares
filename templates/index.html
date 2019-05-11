@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="row justify-content-center mt-5">
+                    <div class="row justify-content-center no-gutters mt-5">
                         <!-- Mars hemispheres -->
                         <div class="col-sm-12">                        
                             <h3 class='text-warning text-center'>Mars Hemispheres</h3>
@@ -79,7 +79,7 @@
                         </div>
                         {% for hemisph in mars_data.Hemispheres %}
                         <div class="col-sm-6 mb-5">
-                            <p><img class='hemisph-img mx-5' src="{{ hemisph.img_url }}" alt="{{ hemisph.title }}"></p>
+                            <p><img class='hemisph-img ml-5' src="{{ hemisph.img_url }}" alt="{{ hemisph.title }}"></p>
                             <div class='img-text m-5'><h5>{{ hemisph.title }}</h5></div>
                         </div>
                         {% endfor %}

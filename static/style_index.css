@@ -18,7 +18,6 @@ html, body {
 #pg-lyt-body {
     padding: 10px;
     padding-bottom: 70px;
-
 }
 
 /* |||pg-lyt-footer||| */
@@ -40,6 +39,12 @@ html, body {
 .jumbotron {
     background-image: url("./assets/images/banner.jpg");
     background-size: cover;
+    border-color: black;
+}
+
+.card {
+    background: black;
+    border-color: black;
 }
 
 .mars-table {

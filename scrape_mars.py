@@ -194,7 +194,7 @@ def scrape():
     for i in range(1, len(im3)):
         im3[i] = "<td class='table-bg-change'>" + im3[i]
 
-    # 3. Concatenate the new html
+    # 5. Concatenate the new html
     fact_html2 = ''
     for i in range(len(im3)):
         fact_html2 += im3[i]

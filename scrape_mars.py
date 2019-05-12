@@ -119,7 +119,7 @@ def scrape():
             if full_name == 'Mars Weather' and username == '@MarsWxReport':
                 
                 # Retrieve content of the tweet for Mars temperature
-                # Note that if 'div' (class="stream-item-header") exist, so does that with class of
+                # Note that if 'div' (class="stream-item-header") exists, so does that with class of
                 # "js-tweet-text-container"
                 mars_weather = content.find('div', class_='js-tweet-text-container').p.text[:-26]
                 

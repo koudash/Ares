@@ -48,14 +48,23 @@ html, body {
 }
 
 .mars-tr {
+    background-color: black !important;
+}
+.mars-table {
     background-color: black;
 }
 
+.mar-tr-head {
+    text-align: center;
+}
 hr {
     display: block;
     border: 1px solid gray;
 }
-
+/* #random {
+    : black !important;
+    color: red;
+} */
 .hemisph-img {
     object-fit: contain;
     width: 85%;

@@ -1,6 +1,7 @@
 # flask toolkits
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
+import datetime as dt
 import scrape_mars
 
 # Create app and pass __name__
@@ -30,10 +31,16 @@ def scrape():
     # Retrieve web scrapting data for Mars
     mars_fact = scrape_mars.scrape()
 
-    # Insert into rather than update with the newly retrieved data in Mongo DB
-    # Note that data are saved with local date&time to keep track of data scraping/HTML updating histories
-    mongo.db.html_update_history.insert_one(mars_fact)
+    # Find the oldest document in "html_update_history" Collection
+    oldest = mongo.db.html_update_history.find_one(sort=[('Data_Retrv_D&T', 1)])
 
+    # Only save documents that are scraped within 30-days
+    # Note that data are saved with local date&time to keep track of data scraping/HTML updating histories
+    if mars_fact['Data_Retrv_D&T'] - oldest['Data_Retrv_D&T'] > dt.timedelta(days=30):
+        mongo.db.html_update_history.delete_one(sort=[('Data_Retrv_D&T', 1)])
+       
+    mongo.db.html_update_history.insert_one(mars_fact) 
+    
     # Redirect to "/" route after data entry in MongoDB 
     return redirect('/', code=302)
 # >>>>>>>>>>> I AM A ROUTE SEPARATOR <<<<<<<<<<< #

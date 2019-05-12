@@ -172,22 +172,32 @@ def scrape():
     mars_fact_df['Values'] = [cols[i][1] for i in range(len(cols))]
 
     # Save Mars fact data as html table
-    fact_html = mars_fact_df.to_html(header=True, index=False, classes='mars-table table-dark', table_id='random')
+    # Setting the text in "text-info" color to show hover effect
+    fact_html = mars_fact_df.to_html(header=True, index=False)
 
-    # Manually add tr class ("mar-tr")
-    # 1. Remove "style" info. for tr in thead
+    # 1. Remove "style" info. for tr in thead and then add class ("text-center") to 'tr' in thead
     im1 = fact_html.split(' style="text-align: right;"')
-    im1_html = im1[0] + " class='mar-tr mar-tr-head'" + im1[1]
+    im1_html = im1[0] + " class='text-center'" + im1[1]
 
-    # 2. Add class info at "<tr>"
-    im2 = im1_html.split('<tr>\n')
+    # 2. Add class info at "<th>"
+    im2 = im1_html.split('<th>')
     for i in range(1, len(im2)):
-        im2[i] = "<tr class='mar-tr'>" + im2[i]
+        im2[i] = "<th class='table-bg-change font-italic'>" + im2[i]
+
+    # 3. Concatenate the new html
+    im2_html = ''
+    for i in range(len(im2)):
+        im2_html += im2[i]
+
+    # 4. Add class info at "<td>"
+    im3 = im2_html.split('<td>')
+    for i in range(1, len(im3)):
+        im3[i] = "<td class='table-bg-change'>" + im3[i]
 
     # 3. Concatenate the new html
     fact_html2 = ''
-    for i in range(len(im2)):
-        fact_html2 += im2[i]
+    for i in range(len(im3)):
+        fact_html2 += im3[i]
 
     # Save Mars fact table data to "mars_fact"
     mars_fact['Fact_Table'] = fact_html2

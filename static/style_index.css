@@ -37,7 +37,7 @@ html, body {
 }
 
 .jumbotron {
-    background-image: url("./assets/images/banner.jpg");
+    background-image: url("assets/images/banner.jpg");
     background-size: cover;
     border-color: black;
 }
@@ -47,28 +47,19 @@ html, body {
     border-color: black;
 }
 
-.mars-tr {
+.table-bg-change {
     background-color: black !important;
-}
-.mars-table {
-    background-color: black;
+    width: 50%;
 }
 
-.mar-tr-head {
-    text-align: center;
-}
 hr {
     display: block;
     border: 1px solid gray;
 }
-/* #random {
-    : black !important;
-    color: red;
-} */
+
 .hemisph-img {
     object-fit: contain;
     width: 85%;
-
 }
 
 #hr-footer {

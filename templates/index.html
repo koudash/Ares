@@ -31,7 +31,7 @@
                         <div class="col-sm-12 jumbotron text-center vertical-center">                      
                             <h1 class="display-4 text-warning">Mission to Mars</h1>
                             <p class="lead">
-                                <a class="btn btn-primary btn-lg bg-warning text-info" href="/scrape" role="button">Scrape New Data</a>
+                                <a class="btn btn-primary btn-lg bg-warning text-info font-weight-bold" href="/scrape" role="button">Scrape New Data</a>
                             </p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="col-sm-12">
                             <h3 class='text-warning'>Latest Mars News</h3>
                             <h5 class='text-danger'>{{ mars_data['Mars_News']['NASA_News_Title'] }}</h5>
-                            <p>Updated on: {{ mars_data['Mars_News']['NASA_News_date'] }}</p>
+                            <p class='font-weight-light font-italic'>Updated on: {{ mars_data['Mars_News']['NASA_News_date'] }}</p>
                             <h6>{{ mars_data['Mars_News']['NASA_News_Para'] }}</h6>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             <div class="row justify-content-left mt-3">    
                                 <div class="col-sm-12 ml-3">    
                                     <h3 class='text-warning'>Mars Facts</h3>
-                                    <div class='text-info'>{{ mars_data['Fact_Table'] | safe }}</div>
+                                    <div>{{ mars_data['Fact_Table'] | safe }}</div>
                                 </div>
                             </div>
                         </div>

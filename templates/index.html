@@ -7,17 +7,21 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Ares</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Bootstrap jQuery and Popper.js -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            ntegrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <!-- "Sketchy" theme from Bootswatch -->
         <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/sketchy/bootstrap.min.css">
         <!-- Local style CSS -->
-        <link rel="stylesheet" type="text/css" href="../static/style_index.css">
-        <!-- Avoid fake favicon requests -->
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon-ares.png') }}">
     <!-- |head ends| -->
     </head>
     <!-- |body starts| -->
@@ -31,7 +35,8 @@
                         <div class="col-sm-12 jumbotron text-center vertical-center">                      
                             <h1 class="display-4 text-warning">Mission to Mars</h1>
                             <p class="lead">
-                                <a class="btn btn-primary btn-lg bg-warning text-info font-weight-bold" href="/scrape" role="button">Scrape New Data</a>
+                                <a class="btn btn-primary btn-lg bg-warning text-info font-weight-bold" href="/scrape" role="button">
+                                    Scrape New Data</a>
                             </p>
                         </div>
                     </div>
@@ -49,7 +54,8 @@
                         <!-- Mars featured image on the left -->
                         <div class="col-md-8">
                             <h3 class='text-warning'>Featured Mars Image</h3>
-                            <p><img class='mr-3 float-left featured-img' src="{{ mars_data['Featured_Image_url'] }}" alt="featured image"></p>
+                            <p><img class='mr-3 float-left featured-img' src="{{ mars_data['Featured_Image_url'] }}" 
+                                alt="featured image"></p>
                         </div>
                         <div class="col-md-4">
                             <div class="row justify-content-left">
@@ -91,7 +97,7 @@
             <!-- |||pg-lyt-body ends||| -->                 
             </div>
             <!-- |||pg-lyt-footer||| -->
-            <div id='pg-lyt-footer'><hr id='hr-footer'>Rice Coding Bootcamp 2019 - Mission to Mars HW by Lei Kang</div>
+            <div id='pg-lyt-footer'><hr id='hr-footer'>Mission to Mars by Lei Kang</div>
         <!-- ||pg-lyt-container ends|| -->        
         </div>
     <!-- |body ends| -->

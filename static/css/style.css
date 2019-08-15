@@ -37,7 +37,7 @@ html, body {
 }
 
 .jumbotron {
-    background-image: url("assets/images/banner.jpg");
+    background-image: url("../images/banner.jpg");
     background-size: cover;
     border-color: black;
 }
